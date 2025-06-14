@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회고 및 메모 | Level Up+</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/log.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <main class="logPage">
+            <section class="logInputSection">
+                <h2>오늘의 회고 및 메모를 남겨 보세요</h2>
+                <form id="logForm">
+                    <textarea id="logReflection" placeholder="오늘을 돌아보며 느낀 점, 성찰, 한 줄 회고 등"></textarea>
+                    <textarea id="logMemo" placeholder="기록하고 싶은 메모, 아이디어, 다짐 등"></textarea>
+                    <button type="submit" class="addBtn">저장</button>
+                </form>
+            </section>
+
+            <section class="logListSection">
+                <h3>내 회고 및 메모 기록</h3>
+                <ul id="logList"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <script src="js/log.js"></script>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

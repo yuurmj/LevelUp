@@ -1,0 +1,707 @@
+body {
+    background-color: #fffaf7;
+
+    margin: 0;
+
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    color: #3c2e1f;
+}
+
+/* 활동 관리 메인 영역 */
+.activityPage {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 24px;
+    color: #3c2e1f;
+}
+
+/* 입력 섹션 */
+.activityInputSection {
+    background-color: #fffaf7;
+
+    max-width: 600px;
+    padding: 24px;
+    margin: 0 auto 40px auto;
+
+    border-radius: 16px;
+    border: 1px solid #f5c8c8;
+    box-shadow:
+        0 8px 24px rgba(255, 190, 190, 0.2),
+        0 0 6px rgba(255, 180, 180, 0.1);
+}
+
+.activityInputSection h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #3c2e1f;
+}
+
+#activityForm {
+    gap: 16px;    
+
+    display: flex;
+    flex-direction: column;
+}
+
+.categorySelectRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.categoryManageBtn {
+    background: none;
+
+    display: flex; 
+    align-items: center; 
+    
+    margin-left: 14px;
+    gap: 6px;
+    border: none; 
+
+    color: #f28c8c; 
+    font-size: 16px;
+    font-weight: 600; 
+    
+    cursor: pointer; 
+    transition: color .2s;
+}
+
+.categoryManageBtn:hover, .categoryManageBtn:active { 
+    color: #d87a7a; 
+    transform: scale(1.02);
+}
+
+.material-symbols-outlined {
+    vertical-align: middle;
+    margin: 0px;
+}
+
+#categorySelect,
+#activityInput,
+#activityNote {
+    background-color: #ffffff;
+
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #e2cfcf;
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+#activityNote {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* 추가하기 버튼 */
+.addBtn {
+    background: linear-gradient(to top, #f8bcbc, #ffcaca);
+
+    padding: 12px 40px;
+    align-self: center;
+
+    border: none;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow:
+        0 8px 20px rgba(255, 173, 173, 0.4),
+        inset 0 4px 6px rgba(255, 255, 255, 0.5),
+        inset 0 -4px 6px rgba(255, 120, 120, 0.2),
+        0 2px 0 rgba(255, 255, 255, 0.7);
+
+    font-size: 16px;
+    font-weight: 600;
+    color: #3c2e1f;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.addBtn:hover {
+  background: linear-gradient(to top, #f5b0b0, #ffbcbc);
+  box-shadow:
+    0 10px 22px rgba(255, 160, 160, 0.45),
+    inset 0 5px 8px rgba(255, 255, 255, 0.5),
+    inset 0 -5px 8px rgba(255, 120, 120, 0.2);
+}
+
+.addBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 4px 10px rgba(255, 150, 150, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 리스트 섹션 */
+.activityListSection h3 {
+    margin-bottom: 16px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+#activityListToday, #activityListPast {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px;
+
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+#activityListToday li, #activityListPast li {
+    background-color: #ffffff;
+
+    height: auto;
+    padding: 16px;
+    margin-bottom: 12px;
+    
+    border-radius: 10px;
+    border: 1px solid #eee1db;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+
+    transition: all 0.2s ease-in-out;
+}
+
+#activityListToday li:hover, #activityListPast li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.activityItem {
+    background: #fff5ec;
+
+    padding: 10px 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.activityTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    
+    margin-bottom: 6px;
+    gap: 12px;
+}
+
+.activityContent {
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;;
+    gap: 10px;
+    flex: 1;
+}
+
+.activityContent span {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
+}
+
+.activityContent input[type="checkbox"] {
+    accent-color: #f28c8c;
+    transform: scale(1.5);
+    margin-top: 7px;
+}
+
+.activityNote {
+    padding: 0 10px 0 4px;
+    margin-top: 6px;
+
+    color: #8c7b6d;
+    font-size: 14px;
+    line-height: 1.5;
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.deleteBtn, .editBtn, .saveBtn, .cancelBtn {
+    background: #ffe4e4;
+
+    padding: 4px 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: #f28c8c;
+    font-size: 13px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.deleteBtn:hover {
+    background-color: #ffcccc;
+}
+
+#togglePastBtn {
+    background-color: transparent;
+    
+    padding: 0;
+    border: none;
+
+    color: #3c2e1f;
+    font-size: 22px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#pastActivityWrapper {
+    display: none;
+    margin-top: 10px;
+    animation: fadeIn 0.35s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: none;}
+}
+
+.modal {
+    background: rgba(60, 40, 30, 0.18);
+
+    position: fixed;
+    left: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2000;
+}
+
+.modalContent {
+    background-color: #ffffff;
+
+    min-width: 380px;
+    min-height: 230px;
+    max-width: 700px;
+    max-height: 80vh;
+
+    width: auto;
+    padding: 40px;
+    gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(242, 140, 140, 0.18), 0 2px 8px rgba(60,30,20,0.07);
+    animation: fadeInModal 0.35s;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(32px);}
+  to   { opacity: 1; transform: none;}
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.modalHeader h2 {
+    margin: 0;
+
+    color: #3c2e1f;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.modalCloseBtn {
+    background: none;
+    
+    padding: 0 2px;
+    border: none;
+
+    color: #8c7b6d;
+    font-size: 26px;
+    
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modalCloseBtn:hover { 
+    color: #f28c8c; 
+}
+
+#categoryList {
+    list-style: none;
+    margin: 0 0 4px 0; 
+    padding: 0; 
+    gap: 12px;
+
+    display: flex; 
+    flex-direction: column; 
+}
+
+.categoryListItem {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    gap: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 15px;
+}
+
+.categoryBtns {
+    display: flex;
+    gap: 6px;
+}
+
+.deleteCatBtn, .cancelCatBtn {
+    margin-left: 10px;
+}
+
+#addCategoryForm {
+    gap: 10px;
+    padding: 0 12px;
+    margin-top: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#newCategoryName {
+    background-color: #ffffff;
+
+    height: 43px;
+    width: 280px;
+    padding: 0 14px;
+    margin-right: 8px;
+
+    border-radius: 10px;
+    border: 1px solid #e2cfcf;
+    box-sizing: border-box;
+
+    font-size: 15px;
+}
+
+#newCategoryName:focus {
+    border-color: #f28c8c;
+    outline: none;
+}
+
+.editCatInput {
+    background: #ffffff;
+
+    width: 150px;
+    height: 35px;
+    padding: 0 10px;
+    margin: 0 10px 0 -11px;
+
+    border: 1px solid #e2cfcf;
+    border-radius: 8px;
+
+    font-size: 15px;
+    transition: border 0.2s;
+}
+
+.editCatInput:focus {
+    border-color: #f28c8c;
+    outline: none;
+}
+
+.activityEditInput, .noteEditInput {
+    background: #ffffff;
+
+    padding: 8px 2px 8px 10px;
+
+    border: 1px solid #e2cfcf;
+    border-radius: 8px;
+
+    font-size: 14px;
+    transition: border 0.2s;
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.activityEditInput:focus {
+    border-color: #f28c8c;
+    outline: none;
+}
+
+.categoryBtns {
+    width: 650px;
+    margin: 0 auto 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categoryBtns button {
+    background-color: #fffaf7;
+
+    padding: 8px 22px;
+    margin: 0;
+
+    border-radius: 10px;
+    border: 2px solid #ffadad;
+
+    color: #3c2e1f;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.categoryBtns button:hover, .categoryBtns button:focus {
+    color: #f28c8c;
+    border-color: #f28c8c;
+    box-shadow: 0 2px 8px rgba(255,190,190,0.11);
+    outline: none;
+}
+
+.categoryActivitiesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.modalActivityCard {
+    background: #ffffff;
+
+    max-width: 300px;
+    padding: 16px;
+    margin: 10px 0 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border: 1px solid #eee1db;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+    font-size: 16px;
+    color: #3c2e1f;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.modalActivityCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.modalActivityTop {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.modalActivityButtons .editBtn, .deleteBtn {
+    font-size: 12px;
+}
+
+.modalActivityDate {
+    font-weight: 500;
+    font-size: 14px;
+    color: #8c7b6d;
+    margin-bottom: 8px;
+}
+
+.modalActivityMiddle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    
+    margin-bottom: 6px;
+    gap: 12px;
+}
+
+.modalActivityContent {
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1;
+}
+
+.modalActivityCheckbox {
+    accent-color: #f28c8c;
+    transform: scale(1.5);
+    margin-top: 4px;
+}
+
+.modalActivityNote {
+    padding-left: 4px;
+    margin-top: 6px;
+
+    color: #8c7b6d;
+    font-size: 14px;
+    line-height: 1.5;
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.noActivityCard {
+    padding: 20px;
+    color: #8c7b6d;
+    font-style: italic;
+    text-align: center;
+}
+
+.toastMessage {
+    background-color: #ffe4e4;
+
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    padding: 12px 20px;
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 160, 170, 0.5);
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #f28c8c;
+
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 9999;
+}
+
+.toastMessage.fadeOut {
+    opacity: 0;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .activityPage {
+        max-width: 100%;
+        padding: 20px 16px;
+        margin: 30px auto;
+    }
+
+    .activityInputSection {
+        max-width: 100%;
+        padding: 16px 20px;
+        margin-bottom: 30px;
+    }
+
+    #activityForm {
+        gap: 12px;
+    }
+
+    .categoryManageBtn {
+        margin-left: 0;
+        justify-content: flex-start;
+    }
+
+    #categorySelect,
+    #activityInput,
+    #activityNote {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    #activityNote {
+        min-height: 60px;
+    }
+
+    .addBtn {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+
+    #activityListToday, #activityListPast {
+        padding: 0 10px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #activityListToday li, #activityListPast li {
+        padding: 14px 12px;
+    }
+
+    .categoryBtns {
+        width: 100%;
+        margin: 0 0 40px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .categoryBtns button {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .categoryActivitiesContainer {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-top: 6px;
+    }   
+
+    .modalContent {
+        min-width: 300px;
+        max-width: 80vw;
+        padding: 20px 16px;
+    }
+
+    .modalActivityCard {
+        max-width: 300px;
+        padding: 14px 12px;
+        margin: 8px 0;
+    }
+
+    .modalActivityButtons .editBtn, .deleteBtn {
+        font-size: 11px;
+    }
+
+    .modalActivityDate {
+        font-size: 13px;
+    }
+
+    .modalActivityNote {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .toastMessage {
+        font-size: 14px;
+        padding: 10px 16px;
+        top: 20px;
+    }
+}

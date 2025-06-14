@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>활동 관리 | Level Up+</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/profile.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <main class="profilePage">
+            <section class="profileTop">
+                <div class="profileInfo">
+                    <div class="profileInfoWrapper" style="display: flex; align-items: center; gap: 8px;">
+                        <div class="profileNicknameWrapper">
+                            <div class="profileAvatar">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div class="profileNickname" id="profileNickname"></div>
+                            <button type="button" id="editProfileBtn" class="profileEditBtn" title="프로필 수정">
+                                <span class="material-symbols-outlined">edit</span>
+                            </button>
+                            <button type="button" id="saveProfileBtn" style="display:none;">저장</button>
+                            <button type="button" id="cancelProfileBtn" style="display:none;">취소</button>
+                        </div>
+                        <div class="profileLevelXP">
+                            <div class="profileLevel">Lv.<span id="profileLevel"></span></div>
+                            <div class="proifleXP" id="profileXP"></div>
+                        </div>
+                        <div class="profileXPBarWrapper">
+                            <div class="profileXPBarBg">
+                                <div class="profileXPBar" id="profileXPBar" style="width:0%;"></div>
+                            </div>
+                        </div>
+                        <div class="profileXPRemain" id="profileXPRemain"></div>
+                        <div class="profileLevelUpAnim" id="profileLevelUpAnim" style="display:none;">Level Up+</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="profileStats">
+                <div class="profileStatItem">
+                    <div class="profileStatLabel">누적 활동</div>
+                    <div class="profileStatValue" id="profileTotalActs">0</div>
+                </div>
+                <div class="profileStatItem">
+                    <div class="profileStatLabel">연속 달성</div>
+                    <div class="profileStatValue" id="profileStreak">0일</div>
+                </div>
+                <div class="profileStatItem" id="profileBadges">
+                    <div class="profileStatLabel" id="badgeCollection">뱃지</div>
+                    <div class="profileStatValue" id="profileBadgesValue">-</div>
+                </div>
+            </section>
+
+            <section class="profileHistory">
+                <div class="profileHistoryLabel">최근 7일</div>
+                <div class="profileHistoryDots" id="profileHistoryDots"></div>
+            </section>
+        </main>
+
+        <div id="badgeModal" class="modal">
+            <div id="badgeModalContent" class="modalContent">
+                <div class="modalHeader">
+                    <h2>뱃지 컬렉션</h2>
+                    <button id="closeBadgeModal" class="modalCloseBtn" title="닫기">&times;</button>
+                </div>
+                <div id="badgeModalList"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <script src="js/profile.js"></script>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>달력 | Level Up+</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/calendar.css" />
+        <link rel="stylesheet" href="css/log.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <main class="calendarPage">
+            <div class="calendarControls">
+                <button id="prevMonth">◀</button>
+                <span id="currentMonth"></span>
+                <button id="nextMonth">▶</button>
+            </div>
+
+            <div class="calendarGrid" id="calendarGrid"></div>
+
+            <section class="dayDetail" id="dayDetail">
+                <h3 id="selectDateTitle">날짜를 선택하세요</h3>
+                <ul id="dayActivityList"></ul>
+
+                <h3 id="logSectionTitle"></h3>
+                <ul id="logCardList"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <script src="js/calendar.js"></script>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

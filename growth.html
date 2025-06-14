@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>성장 통계 | Level Up+</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/growth.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <main class="growthPage">
+            <h2>성장 통계</h2>
+
+            <section class="summarySection">
+                <div class="summaryCard">
+                    <h2>전체 활동 수</h2>
+                    <p id="totalActivities"></p>
+                </div>
+                <div class="summaryCard">
+                    <h2>완료한 활동</h2>
+                    <p id="totalCompleted"></p>
+                </div>
+                <div class="summaryCard">
+                    <h2>가장 많이 한 카테고리</h2>
+                    <p id="mostCategory"></p>
+                </div>
+            </section>
+
+            <section class="chartSection">
+                <div class="chartBox">
+                    <div class="chartTitle">최근 7일 간 활동</div>
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+                <div class="chartBox">
+                    <div class="chartTitle">카테고리별 활동 비율</div>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <script src="js/growth.js"></script>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Level Up+</title>
+        
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <section class="hero">
+            <div class="heroLeft">
+                <img src="assets/logo_hero.png" />
+            </div>
+            <div class="heroRight">
+                <h1>나만의 멀티 성장 대시보드</h1>
+                <p>모든 활동을 정리하여<br>
+                    당신의 <strong>성장</strong>을 기록하세요</p>
+                <a class="startBtn" href="activity.html">시작하기</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="featureCard">
+                <h3><span class="material-symbols-outlined">category</span> 카테고리 관리</h3>
+                <p>습관, 공부, 운동 등 카테고리를 직접 만들고 관리할 수 있어요.</p>
+            </div>
+            <div class="featureCard">
+                <h3><span class="material-symbols-outlined">check_circle</span> 활동 기록 및 관리</h3>
+                <p>오늘의 활동을 추가, 수정, 삭제하고 완료 체크까지 한눈에 관리할 수 있어요.</p>
+            </div>
+            <div class="featureCard">
+                <h3><span class="material-symbols-outlined">calendar_today</span> 달력</h3>
+                <p>달력에서 날짜별 활동 기록과 달성 현황을 한눈에 확인할 수 있어요.</p>
+            </div>
+            <div class="featureCard">
+                <h3><span class="material-symbols-outlined">insights</span> 통계 시각화</h3>
+                <p>카테고리별 당성률, 전체 성장 추이 등 나의 변화를 차트로 분석할 수 있어요.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

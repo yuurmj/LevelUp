@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>활동 관리 | Level Up+</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/activity.css" />
+        <link rel="stylesheet" href="css/navbar.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="navbar"></div>
+
+        <main class="activityPage">
+            <section class="activityInputSection">
+                <h2>오늘의 활동을 기록해 보세요</h2>
+                <form id="activityForm">
+                    <div class="categorySelectRow">
+                        <select name="category" id="categorySelect">
+                            <option value="habit">습관</option>
+                            <option value="study">공부</option>
+                            <option value="exercise">운동</option>
+                            <option value="reading">독서</option>
+                        </select>
+                        <button type="button" id="openCategoryModal" class="categoryManageBtn" title="카테고리 관리">
+                            <span class="material-symbols-outlined">settings</span>
+                        </button>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="activityInput"
+                        placeholder="활동 내용을 입력하세요"
+                        required
+                    />
+
+                    <textarea id="activityNote" placeholder="메모를 작성할 수 있어요"></textarea>
+
+                    <button type="submit" class="addBtn">추가</button>
+                </form>
+            </section>
+
+            <div id="categoryFilterBtns" class="categoryBtns"></div>
+
+            <section class="activityListSection">
+                <h3>오늘의 활동</h3>
+                <ul id="activityListToday"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Level Up+. All rights reserved.</p>
+            <div class="footerLink">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">피드백</a>
+            </div>
+        </footer>
+
+        <div id="categoryModal" class="modal" style="display: none;">
+            <div class="modalContent">
+                <div class="modalHeader">
+                    <h2>카테고리 관리</h2>
+                    <button class="modalCloseBtn" id="closeCategoryModal" title="닫기">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <ul id="categoryList"></ul>
+                <form id="addCategoryForm" style="display:flex; gap:8px; margin-top:10px;">
+                    <input type="text" id="newCategoryName" placeholder="새 카테고리명" required autocomplete="off" />
+                    <button type="submit" class="addBtn" style="min-width:70px;">추가</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="categoryActivitiesModal" class="modal" style="display: none;">
+            <div class="modalContent">
+                <div class="modalHeader">
+                    <h2 id="modalCategoryTitle"></h2>
+                    <button class="modalCloseBtn" id="closeCategoryActivitiesModal" title="닫기">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div id="categoryActivitiesContainer"></div>
+            </div>
+        </div>
+
+        <script src="js/activity.js"></script>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .then(() => {
+                    const script = document.createElement('script');
+                    script.src = 'js/navbar.js';
+                    document.body.appendChild(script);
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회원가입 | Level Up+</title>
+        <link rel="stylesheet" href="css/signup.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head> 
+    <body>
+        <div class="signupContainer">
+            <a class="signupLogo" href="index.html">
+                <img src="assets/logo_hero.png" />
+            </a>
+
+            <form class="signupForm">
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <span class="inputIcon material-symbols-outlined">person</span>
+                        <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력하세요" required />
+                    </div>
+                    <div class="fieldMessage" id="nicknameMsg"></div>
+                </div>
+
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <span class="inputIcon material-symbols-outlined">mail</span>
+                        <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required />
+                    </div>
+                    <div class="fieldMessage" id="emailMsg"></div>
+                </div>
+
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <span class="inputIcon material-symbols-outlined">lock</span>
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required />
+                    </div>
+                    <div class="fieldMessage" id="passwordMsg"></div>
+                </div>
+
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <span class="inputIcon material-symbols-outlined">lock</span>
+                        <input type="password" id="confirm" name="confirm" placeholder="비밀번호를 다시 입력하세요" required />
+                    </div>
+                    <div class="fieldMessage" id="confirmMsg"></div>
+                </div>
+
+                <button type="submit" class="signupBtn" disabled>회원가입</button>
+            </form>
+
+            <p class="loginLink">
+                이미 계정이 있으신가요? <a href="login.html">로그인</a>
+            </p>
+        </div>
+
+        <script src="js/signup.js"></script>
+    </body>
+</html>
